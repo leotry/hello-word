@@ -1,0 +1,263 @@
+﻿<html>
+  <head>
+    <title>FirstPage</title>
+	  <link type="text/css" rel="stylesheet" href="test.css"/>
+	  <script type="text/javascript" src="cookie.js"></script>
+	  <script type="text/javascript">
+	  	
+
+	  	var userName;
+	  	function greetUser(){
+	  		if(navigator.cookieEnabled)
+	  			userName = readCookie("irock_username");
+	  		if(userName)
+	  			alert("Hello " + userName + ", I missed you.");
+	  		else
+	  			alert("Hello, I am your pet rock.");
+	  	}
+	  	
+	  	function touchRock(){
+	  		if (userName) {
+          		alert("I like the attention, " + userName + ". Thank you.");
+        	}
+        	else {
+        	  	userName = prompt("What is your name?", "Enter your 	name here.");
+         	  	if (userName) {
+           	  		alert("It is good to meet you, " + userName + ".");
+           	  		if(navigator.cookieEnabled) {
+           	  			writeCookie("irock_username", userName, 5*365);
+           	  			alert('writeCookie');
+           	  		}
+         	  		else
+         	  			alert("Sorry.Cookie aren't supported/enabled in your browser. I won't remember you later.");
+         	  	}
+        	}
+        	document.getElementById("rockImg").src = "rock_happy.png";
+       		setTimeout("document.getElementById('rockImg').src = 'rock.png';", 10 * 1000);
+	  	}
+
+	  	function resizeRock(){
+	  		document.getElementById("rockImg").style.height=
+	  		  (document.body.clientHeight-100)*0.4;
+	  	}
+
+
+
+
+	  	function updateOrder() {
+       		const TAXRATE = 0.0925;
+        	const DONUTPRICE = 0.50;
+        	var numCakeDonuts = parseDonuts(document.getElementById("cakedonuts").value);
+        	var numGlazedDonuts = parseDonuts(document.getElementById("glazeddonuts").value);
+        	if (isNaN(numCakeDonuts))
+          		numCakeDonuts = 0;
+        	if (isNaN(numGlazedDonuts))
+          		numGlazedDonuts = 0;
+        	var subTotal = (numCakeDonuts + numGlazedDonuts) * DONUTPRICE;
+        	var tax = subTotal * TAXRATE;
+        	var total = subTotal + tax;
+        	document.getElementById("subtotal").value = "$" + subTotal.toFixed(2);
+        	document.getElementById("tax").value = "$" + tax.toFixed(2);
+        	document.getElementById("total").value = "$" + total.toFixed(2);
+      	}
+
+        function parseDonuts(donutString) {
+        	numDonuts = parseInt(donutString);
+        	if (donutString.indexOf("dozen") != -1)
+          		numDonuts *= 12;
+        	return numDonuts;
+        }
+
+        function placeOrder(form) {
+        	if (document.getElementById("name").value == "")
+          		alert("I'm sorry but you must provide your name before submitting an order.");
+        	else if (document.getElementById("pickupminutes").value == "" ||
+          	isNaN(document.getElementById("pickupminutes").value))
+          		alert("I'm sorry but you must provide the number of minutes until pick-up before submitting an order.");
+        	else
+          // Submit the order to the server
+          		form.submit();
+        }
+	  </script>
+  </head>
+
+
+
+
+  <body onload="resizeRock();greetUser();"
+  	onresize="resizeRock();">
+    <h1>Give It a Try</h1>
+
+    <div id="rock">
+   		<img style="cursor:pointer" id="rockImg" src="rock.png" alt="iRock" onclick="touchRock()" />
+   	</div>
+
+
+
+
+
+   	<div id="frame">
+      <div class="heading">Duncan's Just-In-Time Donuts</div>
+      <div class="subheading">All donuts 50 cents each, cake or glazed!</div>
+      <div id="left">
+        <img src="donuttime.png" alt="Just-In-Time Donuts" />
+      </div>
+      <form name="orderform" action="donuts.php" method="POST">
+        <div class="field">
+          Name: <input type="text" id="name" name="name" value="" />
+        </div>
+        <div class="field">
+        # of cake donuts: <input type="text" id="cakedonuts" name="cakedonuts" value=""
+          onchange="updateOrder();" />
+        </div>
+        <div class="field">
+        # of glazed donuts: <input type="text" id="glazeddonuts" name="glazeddonuts" value=""
+          onchange="updateOrder();" />
+        </div>
+        <div class="field">
+        Minutes 'til pickup: <input type="text" id="pickupminutes" name="pickupminutes" value="" />
+        </div>
+        <div class="field">
+        Subtotal: <input type="text" id="subtotal" name="subtotal" value="" readonly="readonly" />
+        </div>
+        <div class="field">
+        Tax: <input type="text" id="tax" name="tax" value="" readonly="readonly" />
+        </div>
+        <div class="field">
+        Total: <input type="text" id="total" name="total" value="" readonly="readonly" />
+        </div>
+        <div class="field">
+        <input type="button" value="Place Order" onclick="placeOrder(this.form);" />
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+	<img src="photos/tifa1.jpg" height=315 />
+	
+
+	<iframe id="music" width="560" height="315" src="http://www.youtube.com/embed/9wqpfFI3EVE?list=PLJUJ8Vmjto2-jwvrf7j4ClofUffuOgrXw" frameborder="0" allowfullscreen></iframe>
+
+
+	<form id="submit" action="http://www.headfirstlabs.com/contest.php" method="POST">
+		<p>
+			Just type in your name (and click Submit) to enter the contest:<br/>
+			First name: <input type="text" name="firstname" value=""/> <br/>
+			Last name: <input type="text" name="lastname" value=""/> <br/>
+			<input type="submit" />
+		</p>
+	</form>
+
+
+	<fieldset id="links">
+		<legend>常用網站</legend>
+		<ul>
+			<li><a target="_blank" href="http://ems.ndhu.edu.tw/cgi-bin/start?m=0.5684590765740722">學校信箱</a></li>
+			<li><a target="_blank" href="http://www.ndhu.edu.tw/bin/home.php">國立東華大學</a></li>
+			<li><a target="_blank" href="https://tw.sports.yahoo.com/nba/">奇摩運動-NBA美國職籃</a></li>
+			<li><a target="_blank" href="http://www.gamer.com.tw/">巴哈姆特電玩資訊站</a></li>
+		</ul>
+	</fieldset>	
+	
+
+	<form id="beanform" action="http://www.starbuzzcoffee.com/processorder.php" method="post">
+      <table>
+        <tr>
+          <th>Choose your beans:</th>
+          <td>
+            <select name="beans">
+              <option value="House Blend">House Blend</option>
+              <option value="Bolivia">Shade Grown Bolivia Supremo</option>
+              <option value="Guatemala">Organic Guatemala</option>
+              <option value="Kenya">Kenya</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Type:</th>
+          <td>
+            <input type="radio" name="beantype" value="whole" id="whole" />
+            Whole bean
+            <br />
+            <input type="radio" name="beantype" value="ground" id="ground" checked="checked" /> 
+            Ground
+          </td>
+        </tr>
+
+	<tr>
+          <th>Extras:</th>
+          <td>
+            <input type="checkbox" name="extras[]" value="giftwrap" id="giftwrap" />
+            Gift wrap
+            <br />
+            <input type="checkbox" name="extras[]" value="catalog" id="catalog" checked="checked" />
+            Include catalog with order
+          </td>
+        </tr>
+
+        <tr>
+          <th>Ship to:</th>
+            <td>
+              <table>
+                <tr>
+                  <td>Name:</td>
+                  <td>
+                    <input type="text" name="name" id="name" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Address:</td>
+                  <td>
+                    <input type="text" name="address" id="address" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>City:</td>
+                  <td>
+                    <input type="text" name="city" id="city" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>State:</td>
+                  <td>
+                    <input type="text" name="state" id="state" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip:</td>
+                  <td>
+                    <input type="text" name="zip" id="zip" value="" />
+                  </td>
+                </tr>
+              </table>
+            </td>
+	  </tr>
+
+          <tr>
+            <th>Customer Comments:</th>
+            <td>
+              <textarea name="comments" id="comments" rows="10" cols="48"></textarea>
+            </td>
+          </tr>
+
+          <tr>
+	    <th></th>
+            <td>
+              <input type="submit" value="Order Now" />
+            </td>
+          </tr>
+        </table>
+      </form>
+
+
+	<p id="copyright"><small>All trademarks and registered trademarks appearing on this site are property of their respective owners</small></p>
+  </body>
+</html>
+
