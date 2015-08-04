@@ -27,12 +27,6 @@ a:link, a:visited {
 	background: #eee;
 }
 
-span.amp {
-	font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
-	font-weight: normal;
-	font-style: italic;
-}
-
 #masthead {
 	margin: 0 auto;
 	margin-top: 20px;
@@ -98,18 +92,6 @@ span.amp {
 	margin: 0 0 10px 0;
 	color: #000;
 }
-#content p {
-	margin: 0 0 10px 0;
-}
-
-#link-list {
-	margin: 20px 0 0 0;
-	font-size: 1.4em;
-}
-
-#link-list li {
-	margin: 0 0 10px 0;
-}
 
 #sidebar {
 	float: left;
@@ -126,8 +108,73 @@ span.amp {
 #port li {
 	margin: 0 10px 20px 0;
 	float: left;
+	display: inline;
 	border: 5px solid #ddd;
 }
+
+#portA li {
+	margin: 0 10px 20px 0;
+	font-size: 1.4em;
+	border: 5px ;
+}
+
+#portB li {
+	display: inline;
+	margin: 0 10px 20px 0;
+	font-size: 1.4em;
+	border: 5px ;
+	font-family: sans-serif;
+}
+
+#Profile {
+	height: 240px;
+}
+
+#Experience{
+	height: 240px;
+}
+
+#Education{
+	height: 100px;
+}
+
+
+#comeToDie {
+	height: 320px;
+}
+
+#ID {
+	height: 340px;
+}
+
+#XML {
+	height: 345px;
+}
+
+.sidebar {
+	width: 750px;
+	height: 200px;
+	margin: 20px 0 20px 0;
+	padding: 10px;
+	background: #eee;
+}
+
+.sidebar h2 {
+	font-weight: bold;
+	font-size: 2em;
+	border-bottom: 1px solid #ccc;
+	margin: 0 0 20px 0;
+	padding: 5px;
+}
+
+.sidebar h3 {
+	font-size: 1.6em;
+}
+
+.sidebar li {
+	font-size: 1.2em;
+}
+
 
 #footer {
 	clear: both;
