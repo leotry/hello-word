@@ -25,13 +25,13 @@ $(document).ready(function(){
 	}
 
 	function changeCreation() {
-		$("#comeToDie").toggle();
-		$("#XML").toggle();
-		$("#ID").toggle();
+		$("#comeToDie").slideToggle(750);
+		$("#XML").slideToggle(750);
+		$("#ID").slideToggle(750);
 	}
 
 	function changeContact() {
-		$("#ContactMe").toggle();
+		$("#ContactMe").slideToggle(750);
 	}
 
 	function hideLastPage() {
